@@ -6,7 +6,7 @@ node {
     def SF_USERNAME="dev@apto.com"
     def SERVER_KEY_CREDENTIALS_ID="server.key"
     def DEPLOYDIR='src'
-    def TEST_LEVEL='NoTests'
+    def TEST_LEVEL='NoTestRun'
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
 
 
