@@ -30,13 +30,13 @@ node {
 
  	withEnv(["HOME=${env.WORKSPACE}"]) {	
 	
-	    withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
+	    //withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
 		// -------------------------------------------------------------------------
 		// Authenticate to Salesforce using the server key.
 		// -------------------------------------------------------------------------
 
 		stage('Authorize to Salesforce') {
-			rc = command "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias DEV"
+			rc = command "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${SERVER_KEY_CREDENTIALS_ID} --username ${SF_USERNAME} --setalias DEV"
 		    if (rc != 0) {
 			error 'Salesforce org authorization failed.'
 		    }
@@ -65,7 +65,7 @@ node {
 		//        error 'Salesforce deploy failed.'
 		//    }
 		//}
-	    }
+	    //}
 	}
 }
 
