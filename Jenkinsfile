@@ -74,5 +74,10 @@ def command(script) {
         return sh(returnStatus: true, script: script);
     } else {
 		return bat(returnStatus: true, script: script);
-    }
+    } 
 }
+
+
+
+
+
